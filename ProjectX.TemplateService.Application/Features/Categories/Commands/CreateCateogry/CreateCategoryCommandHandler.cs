@@ -27,7 +27,7 @@ namespace ProjectX.Template.Application.Features.Categories.Commands.CreateCateo
                 }
             }
             if (createCategoryCommandResponse.Success) {
-                var category = new Category() { Name = request.Name };
+                var category = new Category() { Name = request.Name, RecordStatus = request.RecordStatus };
                 category = await _categoryRepository.AddAsync(category);
                 createCategoryCommandResponse.Category = _mapper.Map<CreateCategoryDto>(category);
             }

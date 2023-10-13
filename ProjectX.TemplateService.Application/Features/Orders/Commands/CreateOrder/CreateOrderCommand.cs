@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using ProjectX.Template.Domain.Common;
 
 namespace ProjectX.Template.Application.Features.Orders.Commands.CreateOrder {
     public class CreateOrderCommand : IRequest<CreateOrderCommandResponse> {
@@ -6,5 +7,6 @@ namespace ProjectX.Template.Application.Features.Orders.Commands.CreateOrder {
         public decimal OrderTotal { get; set; }
         public DateTime OrderPlaced { get; set; }
         public bool OrderPaid { get; set; }
+        public RecordStatus RecordStatus { get; set; }
     }
 }

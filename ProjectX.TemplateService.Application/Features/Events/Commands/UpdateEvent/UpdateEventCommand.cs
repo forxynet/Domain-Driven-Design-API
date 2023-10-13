@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using ProjectX.Template.Domain.Common;
 
 namespace ProjectX.Template.Application.Features.Events.Commands.UpdateEvent {
     public class UpdateEventCommand : IRequest {
@@ -10,5 +11,6 @@ namespace ProjectX.Template.Application.Features.Events.Commands.UpdateEvent {
         public string? Description { get; set; }
         public string? ImageUrl { get; set; }
         public Guid CategoryId { get; set; }
+        public RecordStatus RecordStatus { get; set; }
     }
 }

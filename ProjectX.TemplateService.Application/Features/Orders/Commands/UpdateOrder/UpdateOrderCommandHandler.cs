@@ -15,6 +15,7 @@ namespace ProjectX.Template.Application.Features.Orders.Commands.UpdateOrder {
         }
         public async Task<Unit> Handle(UpdateOrderCommand request, CancellationToken cancellationToken) {
             var orderToUpdate = await _orderRepository.GetByIdAsync(request.Id) ?? throw new NotFoundException(nameof(Order), request.Id);
+
             var validator = new UpdateOrderCommandValidator();
             var validationResult = await validator.ValidateAsync(request, cancellationToken);
             if (validationResult.Errors.Count > 0)

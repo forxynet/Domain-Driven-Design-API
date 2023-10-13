@@ -21,7 +21,6 @@ namespace ProjectX.Template.Application.Features.Categories.Commands.DeleteCateg
             var categoryToDelete = await _categoryRepository.GetByIdAsync(request.CategoryId) ?? throw new NotFoundException(nameof(Category), request.CategoryId);
 
             categoryToDelete.RecordStatus = RecordStatus.Passive;
-
             await _categoryRepository.UpdateAsync(categoryToDelete);
 
             return Unit.Value;

@@ -30,7 +30,8 @@ namespace ProjectX.Template.Application.Features.Orders.Commands.CreateOrder {
                 var order = new Order() {
                     OrderPlaced = request.OrderPlaced,
                     OrderPaid = request.OrderPaid,
-                    OrderTotal = request.OrderTotal
+                    OrderTotal = request.OrderTotal,
+                    RecordStatus = request.RecordStatus
                 };
                 order = await _orderRepository.AddAsync(order);
                 createOrderCommandResponse.Order = _mapper.Map<CreateOrderDto>(order);

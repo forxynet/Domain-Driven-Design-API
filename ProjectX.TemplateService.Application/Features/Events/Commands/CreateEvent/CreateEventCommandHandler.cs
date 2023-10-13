@@ -27,17 +27,25 @@ namespace ProjectX.Template.Application.Features.Events.Commands.CreateEvent {
                     createEventCommandResponse.ValidationErrors.Add(error.ErrorMessage);
                 }
             }
+
             if (createEventCommandResponse.Success) {
-                var _event = new Event() {
-                    Name = request.Name,
-                    Price = request.Price,
-                    Artist = request.Artist,
-                    Date = request.Date,
-                    Description = request.Description,
-                    ImageUrl = request.ImageUrl,
-                    CategoryId = request.CategoryId
-                };
-                _event = await _eventRepository.AddAsync(_event);
+
+                #region don't use something like this
+                //var _event = new Event() {
+                //    Name = request.Name,
+                //    Price = request.Price,
+                //    Artist = request.Artist,
+                //    Date = request.Date,
+                //    Description = request.Description,
+                //    ImageUrl = request.ImageUrl,
+                //    CategoryId = request.CategoryId
+                //};
+                #endregion
+
+                var _event = _mapper.Map<Event>(request);
+
+                await _eventRepository.AddAsync(_event);
+
                 createEventCommandResponse.Event = _mapper.Map<CreateEventDto>(_event);
             }
 
