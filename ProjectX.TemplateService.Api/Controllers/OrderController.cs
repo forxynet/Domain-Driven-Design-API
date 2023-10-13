@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using ProjectX.Template.Application.Features.Orders.Commands.CreateOrder;
+using ProjectX.Template.Application.Features.Orders.Commands.DeleteOrder;
 using ProjectX.Template.Application.Features.Orders.Queries.GetOrdersForMonth;
 
 namespace ProjectX.Template.Api.Controllers {
@@ -43,14 +44,14 @@ namespace ProjectX.Template.Api.Controllers {
         }
 
         ////[Authorize]
-        //[HttpDelete("{id}", Name = "DeleteEvent")]
-        //[ProducesResponseType(StatusCodes.Status204NoContent)]
-        //[ProducesResponseType(StatusCodes.Status404NotFound)]
-        //[ProducesDefaultResponseType]
-        //public async Task<ActionResult> Delete(Guid id) {
-        //    var deleteEventCommand = new DeleteEventCommand() { EventId = id };
-        //    await _mediator.Send(deleteEventCommand);
-        //    return NoContent();
-        //}
+        [HttpDelete("{id}", Name = "DeleteOrder")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
+        public async Task<ActionResult> DeleteOrder(Guid id) {
+            var deleteOrderCommand = new DeleteOrderCommand() { Id = id };
+            await _mediator.Send(deleteOrderCommand);
+            return NoContent();
+        }
     }
 }

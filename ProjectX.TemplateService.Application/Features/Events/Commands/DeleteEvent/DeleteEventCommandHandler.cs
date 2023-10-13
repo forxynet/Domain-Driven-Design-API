@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using ProjectX.Template.Application.Contracts.Persistence;
 using ProjectX.Template.Application.Exceptions;
 using ProjectX.Template.Domain.Common;
@@ -8,10 +7,8 @@ using ProjectX.Template.Domain.Entities;
 namespace ProjectX.Template.Application.Features.Events.Commands.DeleteEvent {
     public class DeleteEventCommandHandler : IRequestHandler<DeleteEventCommand> {
         private readonly IAsyncRepository<Event> _eventRepository;
-        private readonly IMapper _mapper;
 
-        public DeleteEventCommandHandler(IMapper mapper, IAsyncRepository<Event> eventRepository) {
-            _mapper = mapper;
+        public DeleteEventCommandHandler(IAsyncRepository<Event> eventRepository) {
             _eventRepository = eventRepository;
         }
 
