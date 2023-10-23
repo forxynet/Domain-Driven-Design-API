@@ -2,11 +2,11 @@
 using ProjectX.Template.Domain.Common;
 
 namespace ProjectX.Template.Application.Features.Orders.Commands.CreateOrder {
-    public class CreateOrderCommand : IRequest<CreateOrderCommandResponse> {
-        public Guid UserId { get; set; }
-        public decimal OrderTotal { get; set; }
-        public DateTime OrderPlaced { get; set; }
-        public bool OrderPaid { get; set; }
-        public RecordStatus RecordStatus { get; set; }
+    public record CreateOrderCommand : IRequest<CreateOrderCommandResponse> {
+        public Guid UserId { get; init; }
+        public decimal OrderTotal { get; init; }
+        public DateTime OrderPlaced { get; init; }
+        public bool OrderPaid { get; init; }
+        public RecordStatus RecordStatus { get; init; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using ProjectX.Template.Api.Middleware;
 using ProjectX.Template.Api.Services;
 using ProjectX.Template.Api.Utility;
@@ -88,8 +89,8 @@ namespace ProjectX.Template.Api {
             try {
                 var context = scope.ServiceProvider.GetService<TemplateDbContext>();
                 if (context != null) {
-                    //await context.Database.EnsureDeletedAsync();
-                    //await context.Database.MigrateAsync();
+                    await context.Database.EnsureDeletedAsync();
+                    await context.Database.MigrateAsync();
                 }
             }
             catch (Exception ex) {

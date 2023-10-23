@@ -48,7 +48,7 @@ namespace ProjectX.Template.Api.Controllers {
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult> Update([FromBody] UpdateCategoryCommand updateCategoryCommand) {
+        public async Task<ActionResult> UpdateCategory([FromBody] UpdateCategoryCommand updateCategoryCommand) {
             await _mediator.Send(updateCategoryCommand);
             return NoContent();
         }

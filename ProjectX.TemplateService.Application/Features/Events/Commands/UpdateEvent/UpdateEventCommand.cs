@@ -2,15 +2,15 @@
 using ProjectX.Template.Domain.Common;
 
 namespace ProjectX.Template.Application.Features.Events.Commands.UpdateEvent {
-    public class UpdateEventCommand : IRequest {
-        public Guid EventId { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public decimal Price { get; set; }
-        public string? Artist { get; set; }
-        public DateTime Date { get; set; }
-        public string? Description { get; set; }
-        public string? ImageUrl { get; set; }
-        public Guid CategoryId { get; set; }
-        public RecordStatus RecordStatus { get; set; }
+    public record UpdateEventCommand : IRequest {
+        public Guid EventId { get; init; }
+        public string Name { get; init; } = string.Empty;
+        public decimal Price { get; init; }
+        public string? Artist { get; init; }
+        public DateTime Date { get; init; }
+        public string? Description { get; init; }
+        public string? ImageUrl { get; init; }
+        public Guid CategoryId { get; init; }
+        public RecordStatus RecordStatus { get; init; }
     }
 }
