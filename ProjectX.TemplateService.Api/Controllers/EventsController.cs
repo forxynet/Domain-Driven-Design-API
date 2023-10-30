@@ -45,7 +45,7 @@ namespace ProjectX.Template.Api.Controllers {
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult> Update([FromBody] UpdateEventCommand updateEventCommand) {
+        public async Task<ActionResult> UpdateEvent([FromBody] UpdateEventCommand updateEventCommand) {
             await _mediator.Send(updateEventCommand);
             return NoContent();
         }
@@ -55,7 +55,7 @@ namespace ProjectX.Template.Api.Controllers {
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult> Delete(Guid id) {
+        public async Task<ActionResult> DeleteEvent(Guid id) {
             var deleteEventCommand = new DeleteEventCommand() { EventId = id };
             await _mediator.Send(deleteEventCommand);
             return NoContent();
